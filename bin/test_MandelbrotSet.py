@@ -16,7 +16,7 @@ from io import BytesIO
 from IPython.display import Image, display
 
 
-def DisplayFractal(a, fmt='jpeg'):
+def DisplayFractal(a: object, fmt: object = 'jpeg') -> object:
     """Display an array of iteration counts as a
      colorful picture of a fractal."""
     a_cyclic = (6.28 * a / 20.0).reshape(list(a.shape) + [1])
@@ -31,6 +31,7 @@ def DisplayFractal(a, fmt='jpeg'):
     display(Image(data=f.getvalue()))
 
 
+# open a session:
 sess = tf.InteractiveSession()
 
 # Use NumPy to create a 2D array of complex numbers
@@ -64,4 +65,8 @@ step = tf.group(
 
 for i in range(200):
     step.run()
-    DisplayFractal(ns.eval())
+
+
+DisplayFractal(ns.eval())
+
+# end
