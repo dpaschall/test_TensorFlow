@@ -3,19 +3,8 @@
 
 # ONLY DISPLAY ERRORS NOT WARNINGS!
 import os
-
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 #
-
-# debug display:
-from IPython.core.display import *
-
-Image(
-    data='https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Pomegranate03_edit.jpg/320px-Pomegranate03_edit.jpg',
-    embed=True, format='jpeg')
-
-# end debugging
-
 
 # Import libraries for simulation
 import tensorflow as tf
@@ -24,8 +13,6 @@ import numpy as np
 # Imports for visualization
 import PIL.Image
 from io import BytesIO
-from IPython.display import Image, display
-
 
 def DisplayFractal(a: object, fmt: object = 'jpeg') -> object:
     """Display an array of iteration counts as a
@@ -38,9 +25,10 @@ def DisplayFractal(a: object, fmt: object = 'jpeg') -> object:
     a = img
     a = np.uint8(np.clip(a, 0, 255))
     f = BytesIO()
-    PIL.Image.fromarray(a).save(f, fmt)
-    display(Image(data=f.getvalue()))
-
+    im = PIL.Image.fromarray(a)
+    im.save(f, fmt)
+    im.show()
+    im.save('mandelbrot.jpeg')
 
 # open a session:
 sess = tf.InteractiveSession()

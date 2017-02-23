@@ -1,9 +1,17 @@
 Windows 10 
+
 installed: 
 python 3.5.2
 pip3 tensorflow --upgrade ...
 pip install image
-pip install IPython
+pip install ipython[notebook]
+pip install Jupyter
 pip install display
+pip install matplotlib
+
+directory:
+C:/Users/echot/PycharmProjects/test_TensorFlow/test_TensorFlow/bin
+
+
 
 
