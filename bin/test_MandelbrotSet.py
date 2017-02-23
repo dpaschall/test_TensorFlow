@@ -3,8 +3,19 @@
 
 # ONLY DISPLAY ERRORS NOT WARNINGS!
 import os
+
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 #
+
+# debug display:
+from IPython.core.display import *
+
+Image(
+    data='https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Pomegranate03_edit.jpg/320px-Pomegranate03_edit.jpg',
+    embed=True, format='jpeg')
+
+# end debugging
+
 
 # Import libraries for simulation
 import tensorflow as tf
@@ -29,10 +40,6 @@ def DisplayFractal(a: object, fmt: object = 'jpeg') -> object:
     f = BytesIO()
     PIL.Image.fromarray(a).save(f, fmt)
     display(Image(data=f.getvalue()))
-    #debug display:
-    from IPython.core.display import *
-    Image(data='https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Pomegranate03_edit.jpg/320px-Pomegranate03_edit.jpg', embed=True,format='jpeg')
-    #end debugging
 
 
 # open a session:
@@ -69,7 +76,6 @@ step = tf.group(
 
 for i in range(200):
     step.run()
-
 
 DisplayFractal(ns.eval())
 
