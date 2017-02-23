@@ -1,0 +1,9 @@
+Windows 10 
+installed: 
+python 3.5.2
+pip3 tensorflow --upgrade ...
+pip install image
+pip install IPython
+pip install display
+
+

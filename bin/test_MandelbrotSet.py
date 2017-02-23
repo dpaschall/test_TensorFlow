@@ -29,6 +29,10 @@ def DisplayFractal(a: object, fmt: object = 'jpeg') -> object:
     f = BytesIO()
     PIL.Image.fromarray(a).save(f, fmt)
     display(Image(data=f.getvalue()))
+    #debug display:
+    from IPython.core.display import *
+    Image(data='https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Pomegranate03_edit.jpg/320px-Pomegranate03_edit.jpg', embed=True,format='jpeg')
+    #end debugging
 
 
 # open a session:
